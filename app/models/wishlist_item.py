@@ -26,3 +26,5 @@ class WishlistItem(db.Model):
             "user_id": self.user_id,
             "created_at": self.created_at
         }
+
+

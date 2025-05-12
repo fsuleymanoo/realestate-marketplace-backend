@@ -55,8 +55,8 @@ class Listing(db.Model):
             "title": self.title,
             "description": self.description,
             "property_type": self.property_type,
-            "price": self.price,
-            "beedrooms": self.beedrooms,
+            "price": float(self.price) if self.price else None,
+            "bedrooms": self.bedrooms,
             "bathrooms": self.bathrooms,
             "area_sqft": self.area_sqft,
             "latitude": self.latitude,
@@ -66,4 +66,7 @@ class Listing(db.Model):
             "zip_code": self.zip_code,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
+            "images": [img.serialize() for img in self.images]
         }
+
+
